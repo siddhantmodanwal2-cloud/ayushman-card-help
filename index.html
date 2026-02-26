@@ -1,90 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Ayushman Card Step Guide</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {font-family: Arial; background:#f4f6f9; padding:20px;}
-.box {background:white; padding:20px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1);}
-h2 {text-align:center;}
-.step {margin:15px 0; padding:10px; background:#eef2f7; border-radius:5px;}
-button {padding:10px 15px; border:none; border-radius:5px; background:#27ae60; color:white; cursor:pointer;}
-.whatsapp {background:#25D366;}
-</style>
+  <title>Ayushman Card Guide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body>
+<body style="font-family: Arial; text-align:center; padding:20px;">
 
-<div class="box">
+  <h2>Ayushman Card Download Guide</h2>
 
-<h2>Ayushman Card Download Guide</h2>
-  <button onclick="speakHindi('Namaste. Ayushman card download karne ke liye step 1 follow karein.')">
-🔊 Guide Sunen
+  <p>Step by Step Voice Guidance System</p>
+
+  <br>
+
+  <button onclick="openSite()" style="padding:10px 20px; font-size:16px;">
+    Official Website Open Karein
   </button>
-<p><b>Service By: Siddhant Modanwal</b></p>
 
-<div class="step">
-<b>Step 1:</b> Official website open karein.
-<br><br>
-<a href="https://beneficiary.nha.gov.in/" target="_blank">
-<button onclick="speakHindi('Official website open karein aur apna mobile number dalein')">
-Open Official Website
-</button>
-</a>
-</div>
+  <br><br>
 
-<div class="step">
-<b>Step 2:</b> Mobile number enter karein.
-</div>
+  <button onclick="speakStep(2)" style="padding:8px 15px;">Next Step</button>
+  <button onclick="speakStep(3)" style="padding:8px 15px;">Next</button>
+  <button onclick="speakStep(4)" style="padding:8px 15px;">Final Step</button>
 
-<div class="step">
-<b>Step 3:</b> OTP verify karein.
-</div>
+  <script>
 
-<div class="step">
-<b>Step 4:</b> Card download karein.
-</div>
-
-<div class="step">
-<b>Step 5:</b> Download hone ke baad yaha click karein aur WhatsApp par bhejein.
-<br><br>
-<a href="https://wa.me/918115879605">
-<button class="whatsapp">Send on WhatsApp</button>
-</a>
-</div>
-
-</div>
-<script>
-function speakHindi(text) {
-
-  if (!('speechSynthesis' in window)) {
-    alert("Voice not supported in this browser");
-    return;
-  }
-
-  var voices = window.speechSynthesis.getVoices();
-  var msg = new SpeechSynthesisUtterance(text);
-
-  msg.lang = "hi-IN";
-  msg.rate = 1;
-  msg.pitch = 1;
-
-  // Hindi voice find karne ki koshish
-  for (var i = 0; i < voices.length; i++) {
-    if (voices[i].lang === "hi-IN") {
-      msg.voice = voices[i];
-      break;
+    function openSite() {
+      window.open("https://beneficiary.nha.gov.in/", "_blank");
+      speakStep(1);
     }
-  }
 
-  window.speechSynthesis.cancel();
-  window.speechSynthesis.speak(msg);
-}
+    function speakStep(step) {
 
-// Voice load hone ka wait
-window.speechSynthesis.onvoiceschanged = function() {
-  console.log("Voices Loaded");
-};
-</script>
+      let text = "";
+
+      if(step === 1) {
+        text = "Step 1. Official website open ho chuki hai. Ab apna mobile number daalein.";
+      }
+
+      if(step === 2) {
+        text = "Step 2. Ab OTP aane par usse enter karein aur verify karein.";
+      }
+
+      if(step === 3) {
+        text = "Step 3. Login hone ke baad apna rajya aur district select karein.";
+      }
+
+      if(step === 4) {
+        text = "Step 4. Ab apna naam search karein aur card download karein.";
+      }
+
+      const msg = new SpeechSynthesisUtterance();
+      msg.text = text;
+      msg.lang = "hi-IN";
+      msg.rate = 1;
+
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(msg);
+    }
+
+  </script>
+
 </body>
 </html>
