@@ -56,13 +56,35 @@ Open Official Website
 </div>
 <script>
 function speakHindi(text) {
-  const msg = new SpeechSynthesisUtterance();
-  msg.text = text;
+
+  if (!('speechSynthesis' in window)) {
+    alert("Voice not supported in this browser");
+    return;
+  }
+
+  var voices = window.speechSynthesis.getVoices();
+  var msg = new SpeechSynthesisUtterance(text);
+
   msg.lang = "hi-IN";
   msg.rate = 1;
+  msg.pitch = 1;
+
+  // Hindi voice find karne ki koshish
+  for (var i = 0; i < voices.length; i++) {
+    if (voices[i].lang === "hi-IN") {
+      msg.voice = voices[i];
+      break;
+    }
+  }
+
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(msg);
 }
+
+// Voice load hone ka wait
+window.speechSynthesis.onvoiceschanged = function() {
+  console.log("Voices Loaded");
+};
 </script>
 </body>
 </html>
