@@ -1,62 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ayushman Card Guide</title>
+  <title>Ayushman Card Voice Guide</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body style="font-family: Arial; text-align:center; padding:20px;">
 
-  <h2>Ayushman Card Download Guide</h2>
-
-  <p>Step by Step Voice Guidance System</p>
+  <h2>Ayushman Card Download Assistant</h2>
+  <p>Automatic Step-by-Step Voice Guidance</p>
 
   <br>
 
-  <button onclick="openSite()" style="padding:10px 20px; font-size:16px;">
+  <button onclick="startProcess()" style="padding:12px 20px; font-size:16px;">
     Official Website Open Karein
   </button>
 
-  <br><br>
-
-  <button onclick="speakStep(2)" style="padding:8px 15px;">Next Step</button>
-  <button onclick="speakStep(3)" style="padding:8px 15px;">Next</button>
-  <button onclick="speakStep(4)" style="padding:8px 15px;">Final Step</button>
-
   <script>
 
-    function openSite() {
-      window.open("https://beneficiary.nha.gov.in/", "_blank");
-      speakStep(1);
-    }
-
-    function speakStep(step) {
-
-      let text = "";
-
-      if(step === 1) {
-        text = "Step 1. Official website open ho chuki hai. Ab apna mobile number daalein.";
-      }
-
-      if(step === 2) {
-        text = "Step 2. Ab OTP aane par usse enter karein aur verify karein.";
-      }
-
-      if(step === 3) {
-        text = "Step 3. Login hone ke baad apna rajya aur district select karein.";
-      }
-
-      if(step === 4) {
-        text = "Step 4. Ab apna naam search karein aur card download karein.";
-      }
-
+    function speak(text) {
       const msg = new SpeechSynthesisUtterance();
       msg.text = text;
       msg.lang = "hi-IN";
       msg.rate = 1;
-
       window.speechSynthesis.cancel();
       window.speechSynthesis.speak(msg);
+    }
+
+    function startProcess() {
+
+      // Official site new tab me open hogi
+      window.open("https://beneficiary.nha.gov.in/", "_blank");
+
+      // Step 1
+      speak("Step 1. Official website open ho chuki hai. Ab apna mobile number daalein.");
+
+      // Step 2 (20 sec baad)
+      setTimeout(function(){
+        speak("Step 2. Ab OTP aane par usse enter karein aur verify karein.");
+      }, 20000);
+
+      // Step 3 (40 sec baad)
+      setTimeout(function(){
+        speak("Step 3. Login hone ke baad apna rajya aur district select karein.");
+      }, 40000);
+
+      // Step 4 (60 sec baad)
+      setTimeout(function(){
+        speak("Step 4. Ab apna naam search karein.");
+      }, 60000);
+
+      // Step 5 (80 sec baad)
+      setTimeout(function(){
+        speak("Step 5. Ab card download button dabayein.");
+      }, 80000);
+
     }
 
   </script>
