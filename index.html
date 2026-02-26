@@ -18,13 +18,18 @@ button {padding:10px 15px; border:none; border-radius:5px; background:#27ae60; c
 <div class="box">
 
 <h2>Ayushman Card Download Guide</h2>
+  <button onclick="speakHindi('Namaste. Ayushman card download karne ke liye step 1 follow karein.')">
+🔊 Guide Sunen
+  </button>
 <p><b>Service By: Siddhant Mo kidanwal</b></p>
 
 <div class="step">
 <b>Step 1:</b> Official website open karein.
 <br><br>
 <a href="https://beneficiary.nha.gov.in/" target="_blank">
-<button>Open Official Website</button>
+<button onclick="speakHindi('Official website open karein aur apna mobile number dalein')">
+Open Official Website
+</button>
 </a>
 </div>
 
@@ -50,15 +55,14 @@ button {padding:10px 15px; border:none; border-radius:5px; background:#27ae60; c
 
 </div>
 <script>
-function speak(text) {
-  var speech = new SpeechSynthesisUtterance(text);
-  speech.lang = "hi-IN";
-  window.speechSynthesis.speak(speech);
+function speakHindi(text) {
+  const msg = new SpeechSynthesisUtterance();
+  msg.text = text;
+  msg.lang = "hi-IN";
+  msg.rate = 1;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(msg);
 }
-
-window.onload = function() {
-  speak("Namaste. Ayushman Card download guide me aapka swagat hai.");
-};
 </script>
 </body>
 </html>
