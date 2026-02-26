@@ -18,7 +18,7 @@ button {padding:10px 15px; border:none; border-radius:5px; background:#27ae60; c
 <div class="box">
 
 <h2>Ayushman Card Download Guide</h2>
-<p><b>Service By: Siddhant Modanwal</b></p>
+<p><b>Service By: Siddhant Mo kidanwal</b></p>
 
 <div class="step">
 <b>Step 1:</b> Official website open karein.
@@ -49,6 +49,16 @@ button {padding:10px 15px; border:none; border-radius:5px; background:#27ae60; c
 </div>
 
 </div>
+<script>
+function speak(text) {
+  var speech = new SpeechSynthesisUtterance(text);
+  speech.lang = "hi-IN";
+  window.speechSynthesis.speak(speech);
+}
 
+window.onload = function() {
+  speak("Namaste. Ayushman Card download guide me aapka swagat hai.");
+};
+</script>
 </body>
 </html>
