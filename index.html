@@ -1,52 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ayushman Card Voice Guide</title>
+  <title>Ayushman Card Guide</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body style="font-family: Arial; text-align:center; padding:20px;">
 
-  <h2>Ayushman Card Download Assistant</h2>
+  <h2>Ayushman Card Download Guide</h2>
 
   <br>
 
-  <!-- Direct Link Method (Popup Block Nahi Hoga) -->
-  <a href="https://beneficiary.nha.gov.in/" target="_blank">
-    <button onclick="startVoice()" style="padding:12px 20px; font-size:16px;">
-      Official Website Open Karein
-    </button>
+  <a href="https://beneficiary.nha.gov.in/" target="_blank" 
+     style="display:inline-block; padding:12px 20px; 
+     background-color:green; color:white; 
+     text-decoration:none; font-size:16px;">
+     Official Website Yaha Click Karein
   </a>
 
-  <script>
+  <br><br>
 
+  <button onclick="startVoice()" style="padding:10px 15px;">
+    Voice Guide Start Karein
+  </button>
+
+  <script>
     function speak(text) {
-      const msg = new SpeechSynthesisUtterance();
-      msg.text = text;
+      const msg = new SpeechSynthesisUtterance(text);
       msg.lang = "hi-IN";
-      msg.rate = 1;
       window.speechSynthesis.cancel();
       window.speechSynthesis.speak(msg);
     }
 
     function startVoice() {
 
-      speak( "mai siddhant ki voice asistent aapki card banane me madad karungi bas aap mujhe step by step follow karte rahe  Official website open ho chuki hai. Ab code aur apna mobile number daalein.");
+      speak("Step 1. Ab apna mobile number daalein.");
 
       setTimeout(function(){
-        speak("Step 2. Ab OTP aane par usse enter karein aur verify karein.");
+        speak("Step 2. OTP enter karein aur verify karein.");
       }, 20000);
 
       setTimeout(function(){
-        speak("Step 3. Login hone ke baad apna rajya yojana  aur district select karein.");
+        speak("Step 3. Rajya aur yojana district select karein.");
       }, 40000);
 
       setTimeout(function(){
-        speak("Step 4. Ab apna adhar card ya ration card number dalke  search karein aur card download karein.");
+        speak("Step 4. Apna adhar card ya ration card number dalke search karke card download karein.");
       }, 60000);
-
     }
-
   </script>
 
 </body>
