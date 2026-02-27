@@ -1,53 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ayushman Card Guide</title>
+  <title>Ayushman Card Voice Assistant</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body style="font-family: Arial; text-align:center; padding:20px;">
+<body style="font-family: Arial; text-align:center; padding:20px; background:#f2f2f2;">
 
-  <h2>Ayushman Card Download Guide</h2>
+  <h2>Ayushman Card Automatic Voice Guide</h2>
+  <p>Website open karein aur steps sunte rahein</p>
 
   <br>
 
-  <a href="https://beneficiary.nha.gov.in/" target="_blank" 
-     style="display:inline-block; padding:12px 20px; 
-     background-color:green; color:white; 
-     text-decoration:none; font-size:16px;">
-     Official Website Yaha Click Karein
-  </a>
-
-  <br><br>
-
-  <button onclick="startVoice()" style="padding:10px 15px;">
-    Voice Guide Start Karein
+  <button id="startBtn" style="padding:12px 20px; font-size:16px; background:green; color:white; border:none;">
+    Official Website Open Karein
   </button>
 
   <script>
+
+    const btn = document.getElementById("startBtn");
+
     function speak(text) {
       const msg = new SpeechSynthesisUtterance(text);
       msg.lang = "hi-IN";
+      msg.rate = 1;
       window.speechSynthesis.cancel();
       window.speechSynthesis.speak(msg);
     }
 
-    function startVoice() {
+    btn.addEventListener("click", function() {
 
-      speak("Step 1. Ab apna mobile number daalein.");
+      // Official website new tab me open
+      window.open("https://beneficiary.nha.gov.in/", "_blank");
+
+      // Automatic Voice Guide Start
+      speak("Step 1. Official website open ho chuki hai. Ab apna mobile number daalein.");
 
       setTimeout(function(){
-        speak("Step 2. OTP enter karein aur verify karein.");
+        speak("Step 2. OTP aane par usse enter karein aur verify karein.");
       }, 20000);
 
       setTimeout(function(){
-        speak("Step 3. Rajya aur yojana district select karein.");
+        speak("Step 3. Login hone ke baad apna rajya aur district select karein.");
       }, 40000);
 
       setTimeout(function(){
-        speak("Step 4. Apna adhar card ya ration card number dalke search karke card download karein.");
+        speak("Step 4. Ab apna naam search karein.");
       }, 60000);
-    }
+
+      setTimeout(function(){
+        speak("Step 5. Card download button dabayein.");
+      }, 80000);
+
+    });
+
   </script>
 
 </body>
